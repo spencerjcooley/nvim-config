@@ -1,0 +1,1 @@
+require("spencer.config.lazy")
