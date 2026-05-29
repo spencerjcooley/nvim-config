@@ -1,13 +1,20 @@
-return {
+local is_windows = package.config:sub(1,1) ==  "\\"
+
+local spec = {
     "ibhagwan/fzf-lua",
-    -- optional for icon support
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+
     lazy = false,
 
     ---@module "fzf-lua"
     ---@type fzf-lua.Config|{}
     ---@diagnostic disable: missing-fields
-    opts = {},
+    opts = {
+        files = {
+            -- Icons are insanely slow on Windows for some reason.
+            file_icons = not is_windows,
+            git_icons = not is_windows,
+        },
+    },
     ---@diagnostic enable: missing-fields
 
     keys = {
@@ -41,7 +48,7 @@ return {
             end,
             desc = "Grep String",
         },
-        
+
         {
             "<leader>pb",
             function ()
@@ -51,3 +58,9 @@ return {
         },
     },
 }
+
+if not is_windows then
+    spec.dependencies = { "nvim-tree/nvim-web-devicons" }
+end
+
+return spec
