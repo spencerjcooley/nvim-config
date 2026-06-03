@@ -3,6 +3,14 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     lazy = false,
 
+    keys = {
+        {
+            "<leader>ph",
+            "<cmd>Alpha<CR>",
+            desc = "Open Alpha Dashboard",
+        },
+    },
+
     config = function()
         local alpha = require("alpha")
         local dashboard = require("alpha.themes.dashboard")
@@ -42,6 +50,7 @@ return {
         dashboard.section.buttons.val = {
             button("f", "  FZF Files", "<cmd>FzfLua files<CR>"),
             button("g", "  FZF Grep", "<cmd>FzfLua live_grep<CR>"),
+            button("p", "  Netrw", "<cmd>Ex<CR>"),
             button("q", "  Quit Neovim", "<cmd>qa<CR>"),
         }
 
