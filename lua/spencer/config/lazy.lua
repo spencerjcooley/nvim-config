@@ -24,9 +24,6 @@ require("lazy").setup({
         { import = "spencer.plugins" },
     },
 
-    -- colorscheme that will be used when installing plugins.
-    install = { colorscheme = { "nord" } },
-
     -- automatically check for plugin updates
     checker = { enabled = true },
 })
