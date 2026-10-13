@@ -13,6 +13,9 @@ local spec = {
             -- Icons are insanely slow on Windows for some reason.
             file_icons = not is_windows,
             git_icons = not is_windows,
+
+            -- Include hidden files, but exclude unwanted directories.
+            fd_opts = [[--hidden --exclude .git --exclude .venv]],
         },
     },
     ---@diagnostic enable: missing-fields
