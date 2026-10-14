@@ -5,5 +5,12 @@ return {
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },    -- if you prefer nvim-web-devicons
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
-    opts = {},
+
+    -- Add CodeCompanion so output properly renders
+    ft = { "markdown", "codecompanion" },
+    opts = {
+        -- Ensures rendering stays active in all modes (Insert/Visual/Normal)
+        -- render_modes = true,
+        file_types = { "markdown", "codecompanion" },
+    },
 }
